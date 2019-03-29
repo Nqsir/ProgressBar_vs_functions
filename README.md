@@ -31,5 +31,5 @@ What it won't work with at this point => matplotlib, the graph edition, it calls
 Hope it helps you figured out how this is working, do not hesitate to star if you liked it ;)
 
 Sources :
-- [https://riptutorial.com/fr/pyqt5/example/29500/basic-pyqt-progress-bar]
-- [https://www.mfitzp.com/article/multithreading-pyqt-applications-with-qthreadpool/] => Github [https://github.com/mfitzp]
+- To start with : [https://riptutorial.com/fr/pyqt5/example/29500/basic-pyqt-progress-bar]
+- To go further and use QThreadPool : [https://www.mfitzp.com/article/multithreading-pyqt-applications-with-qthreadpool/] => Github [https://github.com/mfitzp]
