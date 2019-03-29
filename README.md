@@ -29,3 +29,7 @@ self.list_func = ('function1.function1', 'function2.function2', 'function3.funct
 What it won't work with at this point => matplotlib, the graph edition, it calls Tkinter that does not allowed running graphic thread out of the MainThread, it may therefore work or not, depending on the version your using, but it is atm for sure unstable.
 
 Hope it helps you figured out how this is working, do not hesitate to star if you liked it ;)
+
+Sources :
+- [https://riptutorial.com/fr/pyqt5/example/29500/basic-pyqt-progress-bar]
+- [https://www.mfitzp.com/article/multithreading-pyqt-applications-with-qthreadpool/] => Github [https://github.com/mfitzp]
