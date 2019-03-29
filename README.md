@@ -9,12 +9,12 @@ What's needed to run it:
 - time
 
 2 things you need to pay attention to if you use it on your own code:
-- I needed 3 functions to be runned while progressBar was updated, but up to you to call more/less... However you'll probably need to change few stuffs, no big deal.
-- I defined my self.time_limit to approx 4 in order to 100/3 * 0.1sec + extra 1 sec just to be safe that each class won't redefine the progressBar value at the same time. Because it was approximatively the execution time of each of MY OWN function, but if it is way longer or shorter, just reduce/increase (1), same thing if 0.1 seems to slow/fast, just change (2) :
+- I needed 3 functions to be runned while progressBar was updated, but up to you to call more/less... However you'll probably just need to change functions (see under) and anyway it will pop an error so easy to find out ^^.
+- I defined my self.time_limit to 100/3 * 0.1sec + extra 1 sec just to be safe that each class won't redefine the progressBar value at the same time. Because it was approximatively the execution time of each of MY OWN function, but if it is way longer or shorter, just reduce/increase (1), same thing if 0.1 seems to slow/fast, just change (2) :
   - (1) self.time_limit = x => in FuncsWorker()
   - (2) time.sleep(x) => in ProgressBarWorker()
     
-Before starting, you need to update 2 things : the import of your 3 functions (that was for me in 3 different modules) and where they will be called (in the list_func) so basically change:
+**Before starting**, you need to update 2 things : the import of your 3 functions (that was for me in 3 different modules) and where they will be called (in the list_func) so basically change:
 - imports at the beginning
 ```
   import function1
