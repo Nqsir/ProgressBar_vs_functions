@@ -18,8 +18,6 @@ import function3
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import (QApplication, QDialog, QProgressBar, QPushButton)
 
-TIME_LIMIT = 4
-
 
 class Signals(QObject):
     """
@@ -41,7 +39,7 @@ class ProgressBarWorker(QThread):
     """
     Inherits from QThread to not freeze our soft => This is what this is about right ?
     That class object is made too show updates with a defining time.sleep() to make it look smooth. The sleep duration
-    goes with the TIME_LIMIT in the above class FuncsWorker().
+    goes with the self.time_limit in the above class FuncsWorker().
 
     A classic while loop that emits signal => signals.progress() to set value to the progressBar
 
@@ -84,9 +82,9 @@ class FuncsWorker(QThread):
     that the progressBar has the time to set its value => If function is executed faster than the progressBar growth
      it will make it look weird like a ping-pong progressing.
 
-    The limit comes from : Each time a function is about to be executed, send a signal (self.signals.progress.emit(c))
-    that will make progressbar grow, that growth takes (see in ProgressBarWorker time.sleep(0.1)) 0.1 sec * 100/3
-    => I want to go to 100% I've got 3 functions = Approx 4 (3.33) seconds, as a function can be faster executed,
+    The self.time_limit comes from : Each time a function is about to be executed, send a signal (self.signals.progress.emit(c))
+    that will make progressbar grow, that growth takes (see in ProgressBarWorker time.sleep(0.1)) 0.1 sec * 100/nbr of functions
+    => I want to go to 100% I've got 3 functions = 3.33 seconds and added and extra 0.5, as a function can be faster executed,
     I am checking the time it took to executed it (exec_time) and making it sleep until progressbar has reached its
     defined limit, approx 4 seconds.
     """
@@ -97,6 +95,7 @@ class FuncsWorker(QThread):
         self.args = args
         self.kwargs = kwargs
         self.signals = Signals()
+        self.time_limit = (100 / len(self.args[0]) * 0.1 + 0.5)
 
     def run(self):
         self.signals.starting.emit()
@@ -106,8 +105,8 @@ class FuncsWorker(QThread):
             print(func)
             exec(func)
             exec_time = round((time.time() - start_time), 2)
-            if exec_time < TIME_LIMIT:
-                time.sleep(TIME_LIMIT - exec_time)
+            if exec_time < self.time_limit:
+                time.sleep(self.time_limit - exec_time)
 
         self.signals.finish.emit()
 
