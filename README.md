@@ -26,7 +26,7 @@ What's needed to run it:
 self.list_func = ('function1.function1', 'function2.function2', 'function3.function3')
 ```
 
-What it won't work with at this point => matplotlib, the graph edition, it calls Tkinter that does not allowed running graphic thread out of the MainThread, it may therefore work or not, depending on the version your using, but it is atm for sure unstable.
+What does not work with at this point => matplotlib, the graph edition, it calls Tkinter that does not allowed running graphic thread out of the MainThread, it may therefore make some serious RuneTimeError, depending on the version your using, but it is atm for sure unstable.
 
 Hope it helps you figured out how this is working, do not hesitate to star if you liked it ;)
 
