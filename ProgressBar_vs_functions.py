@@ -83,10 +83,10 @@ class FuncsWorker(QThread):
      it will make it look weird like a ping-pong progressing.
 
     The self.time_limit comes from : Each time a function is about to be executed, send a signal (self.signals.progress.emit(c))
-    that will make progressbar grow, that growth takes (see in ProgressBarWorker time.sleep(0.1)) 0.1 sec * 100/nbr of functions
-    => I want to go to 100% I've got 3 functions = 3.33 seconds and added and extra 0.5, as a function can be faster executed,
+    that will make progressbar grow, that growth takes approximatively (see in ProgressBarWorker time.sleep(0.1)) 0.1 sec * 100/nbr of functions
+    => I want to go to 100% I've got 3 functions = 3.33 seconds and added and extra 1 sec to be sure, as a function can be faster executed,
     I am checking the time it took to executed it (exec_time) and making it sleep until progressbar has reached its
-    defined limit, approx 4 seconds.
+    defined limit => self.time_limit.
     """
 
     # Initialising class, and transfert params + taking our signals to self to be used in the run method
@@ -95,7 +95,7 @@ class FuncsWorker(QThread):
         self.args = args
         self.kwargs = kwargs
         self.signals = Signals()
-        self.time_limit = ((100 / len(self.args[0])) * 0.1 + 0.5)
+        self.time_limit = ((100 / len(self.args[0])) * 0.1 + 1)
 
     def run(self):
         self.signals.starting.emit()
