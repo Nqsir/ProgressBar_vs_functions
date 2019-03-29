@@ -26,6 +26,6 @@ Before starting, you need to update 2 things : the import of your 3 functions (t
 self.list_func = ('function1.function1', 'function2.function2', 'function3.function3')
 ```
 
-What it won't work with at this point => matplotlib, the graph edition, it calls Tkinter that does not allowed running graphic thread out of the MainThread, it may therefore work or not, depending on the version your using, but it atm for sure unstable.
+What it won't work with at this point => matplotlib, the graph edition, it calls Tkinter that does not allowed running graphic thread out of the MainThread, it may therefore work or not, depending on the version your using, but it is atm for sure unstable.
 
 Hope it helps you figured out how this is working, do not hesitate to star if you liked it ;)
