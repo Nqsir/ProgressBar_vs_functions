@@ -1,6 +1,7 @@
 # Need to import your 3 functions see under import function1, 2, 3 => Line 7, 8, 9
 
-# Need to write in the list the 3 functions you want to call => Line 122, function1.function1...
+# Need to write in the list the 3 functions you want to call => Line 122 : 
+    # self.list_func = ('function1.function1', 'function2.function2', 'function3.function3')
 
 import sys
 import time
