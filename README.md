@@ -10,8 +10,8 @@ What's needed to run it:
 
 2 things you need to pay attention to if you use it on your own code:
 - I needed 3 functions to be runned while progressBar was updated, but up to you to call more/less... However you'll probably need to change few stuffs, no big deal.
-- I defined my TIME_LIMIT to 4 in order to 100/3 * 0.1sec rounded to 4. Because it was approximatively the execution time of each  function, but if it is way longer or shorter, just reduce/increase :
-  - TIME_LIMIT = x
+- I defined my self.time_limit to approx 4 in order to 100/3 * 0.1sec + extra 0.5. Because it was approximatively the execution time of each of MY function, but if it is way longer or shorter, just reduce/increase :
+  - self.time_limit = x => in FuncsWorker()
   - time.sleep(x) => in ProgressBarWorker()
     
 Before starting, you need to update 2 things : the import of your 3 functions (that was for me in 3 different modules) and where they will be called (in the list_func) so basically change:
