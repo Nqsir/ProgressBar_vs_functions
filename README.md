@@ -1,4 +1,4 @@
-# ProgressBar_vs_functions
+# ProgressBar_vs_functions (Using MultiThreading)
 Making a progressBar updated while calling functions, using Qthread (2 threads + MainThread)
 
 Point is to update a progressBar in PyQT5 while executing functions and without blocking the MainThread i.e. the GUI app. This is the easy way, nothing fancy, just working :)
