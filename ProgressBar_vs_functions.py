@@ -95,7 +95,7 @@ class FuncsWorker(QThread):
         self.args = args
         self.kwargs = kwargs
         self.signals = Signals()
-        self.time_limit = (100 / len(self.args[0]) * 0.1 + 0.5)
+        self.time_limit = ((100 / len(self.args[0])) * 0.1 + 0.5)
 
     def run(self):
         self.signals.starting.emit()
