@@ -155,15 +155,11 @@ class Actions(QDialog):
     # Creates a ProgressBarWorker class each time a function is about to be executed and defines the limits
     # of the progression. For 3 functions => first from 0 to 34, then 34 to 67 and finally 67 to 99 (99 because we still need
     # to be sure everything is finished before starting again, see while count < 99 and count < self.args[0]: in ProgressBarWorker())
-    # initialises progress signal of ProgressBarWorker to progressbar_update method
+    # initialises progress signal of ProgressBarWorker to change the value of the progressBar
     def funcs_progress_return(self, value):
         self.graphic = ProgressBarWorker((100 / self.len_list_func) * (value + 1), (100 / self.len_list_func) * value)
         self.graphic.start()
-        self.graphic.signals.progress.connect(self.progressbar_update)
-
-    # Called above, change the value of the progressBar
-    def progressbar_update(self, value):
-        self.progress.setValue(value)
+        self.graphic.signals.progress.connect(self.progress.setValue)
 
     # Called when funcs.finish signal is emitted
     def closing(self):
