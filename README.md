@@ -23,8 +23,9 @@ What's needed to run it:
 ```
 - functions around line 122 (in the ```__init__``` section in class Actions(QDialog)):
 ```
-self.list_func = ('function1.function1', 'function2.function2', 'function3.function3')
+self.list_func = (function1.function1, function2.function2, function3.function3)
 ```
+*Edit : if only one function is passed DO NOT forget the **' , '** at the end => (function1.function1, )*
 
 What does not work with at this point => matplotlib, the graph edition, it calls Tkinter that does not allowed running graphic thread out of the MainThread, it may therefore make some serious RuneTimeError, depending on the version your using, but it is atm for sure unstable.
 
