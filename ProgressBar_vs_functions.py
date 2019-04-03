@@ -103,7 +103,7 @@ class FuncsWorker(QThread):
             start_time = time.time()
             self.signals.progress.emit(c)
             print(func)
-            exec(func)
+            func()
             exec_time = round((time.time() - start_time), 2)
             if exec_time < self.time_limit:
                 time.sleep(self.time_limit - exec_time)
@@ -125,7 +125,7 @@ class Actions(QDialog):
     def __init__(self):
         super().__init__()
         # Defining the functions we want to execute in a list, imported from function1.py function2.py function3.py
-        self.list_func = ('function1.function1', 'function2.function2', 'function3.function3')
+        self.list_func = (function1.function1, function2.function2, function3.function3)
         self.len_list_func = len(self.list_func)
         self.init_ui()
 
