@@ -48,7 +48,7 @@ class ProgressBarWorker(QThread):
     Taking 2 params first one that defines the limit and the second that defines the start.
     """
 
-    # Initialising class, and transfert params + taking our signals to self to be used in the run method
+    # Initialising class, and transfer params + taking our signals to self to be used in the run method
     def __init__(self, *args, **kwargs):
         super().__init__()
         self.args = args
