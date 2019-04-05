@@ -27,7 +27,7 @@ self.list_func = (function1.function1, function2.function2, function3.function3)
 ```
 *Edit : if only one function is passed DO NOT forget the **' , '** at the end => (function1.function1, )*
 
-What does not work with at this point => matplotlib, the graph edition, it calls Tkinter that does not allowed running graphic thread out of the MainThread, it may therefore make some serious RuneTimeError, depending on the version your using, but it is atm for sure unstable.
+What does not work with => matplotlib, the graph edition calls Tkinter that does not allow running a graphic thread when out of the MainThread, it may therefore make some serious RuneTimeError, depending on the version your using, but it is for sure unstable with mine (matplotlib 3.0.2).
 
 Hope it helps you figured out how this is working, do not hesitate to star if you liked it ;)
 
