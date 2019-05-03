@@ -11,6 +11,7 @@ class Signals(QObject):
         - ProgressBarWorker
         - FuncsWorker
     Signals Class is called in each ProgressBarWorker() and FuncsWorker() creation
+    
     Our 3 signals give us the possibility to catch signals when starting, progressing and finishing the run method, you
     can choose what you want to be returned. In my case, I needed an int while progressing and none for the rest
     """
@@ -26,7 +27,7 @@ class ProgressBarWorker(QThread):
     Inherits from QThread to not freeze our soft => This is what this is about right ?
 
     That class object is made too show updates with a defining time.sleep() to make it look smooth. The sleep duration
-    goes with the self.time_limit in the above class FuncsWorker().
+    goes with the self.time_limit in the below class FuncsWorker().
     """
     # Initialising class, and transfer params + taking our signals to self to be used in the run method
     def __init__(self, *args, **kwargs):
@@ -50,7 +51,7 @@ class ProgressBarWorker(QThread):
 class FuncsWorker(QThread):
     """
     It also emits an int (remember progress = pyqtSignal(int) in class Signals) from 0 to len(list_func) each time
-     a func is about to be executed => In order to give the limit to the progressBar (see above).
+     a func is about to be executed => In order to give to the progressBar which of the 3 functions is executed.
 
     The self.time_limit makes us catch how long it takes to execute a function, in  order to make sure
     that the progressBar has the time to set its value
